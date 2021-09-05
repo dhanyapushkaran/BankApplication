@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <h5 class="navbar-brand">Welcome to Reminder App</h5>
+    </div>
+</nav>
+<div class="row">
+
+    <div class="col-lg-6">
+        <img class="img2" src="assets/images/mainLog.jpg" alt="">
+    </div>
+
+    <div class="col-lg-6">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <h1><img class="img-responsive img1" src="assets/images/logo.png" alt="">REMINDER</h1>
+            <h5 style="text-align: center;">Register Here</h5>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">User Id</label>
+                <input type="email" class="form-control" name="uId" formControlName="uId" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+                <div class="alert alert-danger"
+                    *ngIf="(this.registerForm.get('uId')?.touched|| this.registerForm.get('uId')?.dirty)&& this.registerForm.get('uId')?.errors ">
+                    invalid </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">User Name</label>
+                <input type="password" class="form-control" name="name" formControlName="name"
+                    id="exampleInputPassword1">
+                    <div  class="alert alert-danger"
+                    *ngIf="(this.registerForm.get('name')?.touched|| this.registerForm.get('name')?.dirty)&& this.registerForm.get('name')?.errors ">
+                    invalid </div>
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="pswd" formControlName="pswd"
+                    id="exampleInputPassword1">
+                    <div  class="alert alert-danger"
+                    *ngIf="(this.registerForm.get('pswd')?.touched|| this.registerForm.get('pswd')?.dirty)&& this.registerForm.get('pswd')?.errors ">
+                    invalid </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="background-color: rgb(245, 110, 48) ;">Submit</button> &nbsp;
+            <span>Alredy Registerd? </span> &nbsp;
+            <button type="submit" routerLink = "" class="btn btn-primary" style="background-color: rgb(245, 110, 48) ;">Login</button>
+
+        </form>
+    </div>
+</div>

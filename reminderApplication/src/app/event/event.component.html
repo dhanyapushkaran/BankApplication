@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <h5 class="navbar-brand">Welcome {{userName}} to Reminder App</h5>
+        <h5 class="ms-auto"><a routerLink="/dashboard">Back to Home page</a></h5>
+
+    </div>
+</nav>
+<div class="row">
+    <div class="col-lg-6">
+        <img class="img2" src="assets/images/mainLog.jpg" alt="">
+
+    </div>
+    <div class="col-lg-6 box">
+        <h1><img class="img-responsive img1" src="assets/images/logo.png" alt="">My Events</h1>
+        <div style="padding-top: 30px;">
+            <table class="table table-dark table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th (click)="sortDate()">Date &nbsp;<i class="fa fa-sort"></i></th>
+                        <th (click)="sortEvent()">Event &nbsp;<i class="fa fa-sort"></i></th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let event of events; index as i ">
+                    <tr>
+                        <th>{{i+1}}</th>
+                        <th>{{event.date}}</th>
+                        <th>{{event.event}}</th>
+                        <td> <button (click)="deleteEvent(i)"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                    <path fill-rule="evenodd"
+                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                </svg></button></td>
+                        <td><button (click)="edit(i)">Edit</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <div *ngIf="i>=0" style="padding-bottom: 10px;">
+                <h6>Enter New Event</h6>
+
+                <input type="date" [(ngModel)]="date" name="date"> &nbsp;
+                <input type="text" [(ngModel)]="event" placeholder="Event" name="event"> <br>
+                <button (click)="editEvent(i)" class="btn" style="background-color: rgb(245, 110, 48) ;">Submit</button>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

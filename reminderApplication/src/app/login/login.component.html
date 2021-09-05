@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <h5 class="navbar-brand" >Welcome to Reminder App</h5>
+    </div>
+  </nav>
+
+  <div class="row">
+      <div class="col-lg-6">
+          <img class="img2" src="assets/images/mainLog.jpg" alt="">
+      </div>
+      <div class="col-lg-6">
+        <form [formGroup]="loginForm" (ngSubmit)= "login()">
+            <h1><img class="img-responsive img1" src="assets/images/logo.png" alt="">REMINDER</h1>
+            <h2 style="text-align: center;">Login Here</h2>
+            <div class="mb-3 fm_1">
+              <label for="exampleInputEmail1" class="form-label">User Id</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="uId" formControlName="uId" aria-describedby="emailHelp">
+              <div  class="alert alert-danger"
+              *ngIf="(this.loginForm.get('uId')?.touched|| this.loginForm.get('uId')?.dirty)&& this.loginForm.get('uId')?.errors ">
+              invalid </div>
+
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="pswd" formControlName="pswd">
+              <div  class="alert alert-danger"
+              *ngIf="(this.loginForm.get('pswd')?.touched|| this.loginForm.get('pswd')?.dirty)&& this.loginForm.get('pswd')?.errors ">
+              invalid </div>
+
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="background-color: rgb(245, 110, 48) ;">Submit</button> &nbsp;
+            <button type="submit" class="btn btn-primary" style="background-color: rgb(245, 110, 48) ;" routerLink="register">register</button>
+          </form>
+      </div>
+  </div>

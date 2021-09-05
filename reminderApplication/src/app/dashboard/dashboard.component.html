@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <h5 class="navbar-brand">Welcome {{userName}} to Reminder App</h5>
+        <h6>{{date}}</h6>
+        <button class="btn btn-lg" (click)="delete()"
+            style="background-color: rgb(245, 110, 48); font-weight: bold; margin-left: 150px; width: 50%;">Delete
+            Account</button>
+
+        <h5 class="ms-auto"><a routerLink="/">Logout</a></h5>
+
+    </div>
+</nav>
+<div class="row" style="padding-top: 50px;">
+    <div class="col-lg-6">
+        <img class="img2" src="assets/images/mainLog.jpg" alt="">
+
+
+    </div>
+    <div class="col-lg-6 box">
+        <app-delete [item]="uid"></app-delete> <br>
+
+        <h4><img class="img-responsive img1" src="assets/images/logo.png" alt="">Add Event Here </h4>
+        <form action="" [formGroup]="eventForm" (ngSubmit)="saveEvent()" class="fm">
+            <div class="mb-3">
+                <input type="date" class="form-control" placeholder="date" name="date" formControlName="date">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Event Name" name="event" formControlName="event">
+            </div>
+
+            <button class="btn " style="background-color: rgb(245, 110, 48) ;" type="submit">Add Event</button> &nbsp;
+            <button routerLink="/event" style="background-color: rgb(245, 110, 48) ;" type="submit" class="btn "> View
+                All Events </button>
+        </form>
+        <h4 style="padding-top: 30px; color:rgb(245, 110, 48)  ;"><img class="img-responsive img1" src="assets/images/logo.png" alt="">Today's Events</h4>
+        <div *ngIf="todayEvents.length>0;">
+
+            <table class="table">
+                <thead style=" color:rgb(245, 110, 48) ;">
+                    <tr>
+                        <th>Date</th>
+                        <th>Events</th>
+
+                    </tr>
+
+                </thead>
+                <tbody *ngFor="let event of todayEvents">
+                    <tr>
+                        <td>{{event.date}}</td>
+                        <td>{{event.event}}</td>
+                        
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div *ngIf="todayEvents.length==0;">
+            No events for Today
+        </div>
+
+
+    </div>
+
+</div>

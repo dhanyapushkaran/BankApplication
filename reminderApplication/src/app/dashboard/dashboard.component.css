@@ -1,0 +1,31 @@
+nav{
+    background-color: rgb(245, 110, 48);
+}
+.img1{
+    width: 80px;
+    height: 50px;
+}
+.img2{
+    width: 500px;
+    height: 500px;
+    padding-left: 100px;
+}
+
+form{
+    padding-right: 30px;
+    padding-top: 50px;
+}
+.fm_1{
+    padding-top: 20px;
+}
+.box{ 
+    padding-top: 50px;
+    border-radius: 10px;
+    height: 400px;
+    width: 500px;
+    
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
